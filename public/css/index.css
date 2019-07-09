@@ -76,7 +76,7 @@ a:hover{
 
 #show-images {
 	width: 60%;
-	margin: 0 auto;
+	margin: 50px auto;
 }
 
 #show-images>li{
@@ -89,4 +89,25 @@ a:hover{
    width: 231px;
     height: auto;
 }
+
+/*footer*/
+#footer{
+	background:black;
+	color:white;
+}
+#footer div{
+	width:15%;
+	margin:10px auto;
+}
+#footer p{
+	width:50%;
+	margin:10px auto;
+	text-align:center;
+}
+#footer div ul li{
+    float:left;
+    border-right:1px solid gray;
+
+}
+
 
