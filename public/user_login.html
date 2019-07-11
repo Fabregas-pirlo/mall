@@ -1,7 +1,129 @@
-<h2>用户登陆</h2>
-<form method="post" action="/user/login">
-  用户:<input type="text" name="uname"><br>
-  密码:<input type="text" name="upwd"><br>
+<!doctype html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+			<style>
+			#d1{
+				width:1500px;
+				height:560px;
+				border:1px solid #000;
+				background:url(Images/bg.png);
+				margin:0 auto;
+				display:flex;
+				flex-direction:row-reverse;
+			}
+			#d2{
+				width:273px;
+				height:297px;
+				background-color:rgba(0,0,0,0.3);
+				border:1px solid #000;
+				margin-left:600px;
+				margin-top:100px;
+				margin-right:140px;
+			}
+			.tbl{
+				width:100%;
+			}
+			.tbl button{
+				width:100%;
+				height:37px;
+				background:#0aa1ed;
+				border:none;
+				margin:15px 0;
+			}
+			#uname,#upwd{
+				width:100%;
+				height:37px;
+				box-sizing:border-box;
+				padding:10px 20px;
+				background:#fff url(Images/yhm.png) no-repeat 97% center;	
+				margin:12px 2px;
+				border:0;
+				outline:0;
+			}
+			#upwd{
+				background:#fff url(Images/mm.png) no-repeat 97% center;	
+			}
+			.tbl h4{
+				color:#fff;
+				margin:10px 5px;
+			}
+			.tbl a{
+				color:#fff;
+				text-decoration:none;
+			}
+			.tbl label{
+				color:#fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			<div id="d2">
+				<table class="tbl">
+					<tr>
+						<td><h4>欢迎登陆商城</h4></td>
+						<td><a href="user_reg.html">新用户注册</a></td>
+					</tr>
+					<tr>
+						<td colspan="2"><hr></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="text" id="uname" placeholder="请输入您的用户名">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="text" id="upwd" placeholder="请输入您的密码">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" id="auto"><label for="auto">自动登录</label>
+						</td>
+						<td><a href="">忘记密码？</a></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button onclick="login()">登录</button>
+						</td>
+					</tr>	
+				</table>
+			</div>
+		</div>
+
+		<script>
+			function login(){
+				var $uname=uname.value;
+				var $upwd=upwd.value;
+				if($uname==""){
+					alert("pls input uname");
+					return;
+				}
+				if($upwd==""){
+					alert("pls input upwd");
+					return;
+				}
+				var xhr=new XMLHttpRequest();
+					xhr.onreadystatechange=function(){
+						if(xhr.readyState==4&&xhr.status==200){
+							var result=xhr.responseText;
+							if(result=="1"){
+								alert("login success");
+							}
+							if(result=="0"){
+								alert("login failure");
+							}
+						}
+					}
+					xhr.open("get","/user/login/"+$uname+"&"+$upwd,true);
+					xhr.send();
+				
+			}
+		</script>
+	</body>
+	</html>
   
-  <input type="submit">
-</form>
+  

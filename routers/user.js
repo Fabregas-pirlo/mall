@@ -44,30 +44,18 @@ router.post('/reg',function(req,res){
 
 
 //2登陆路由
-router.post('/login',function(req,res){
-  //2.1获取数据
-  var obj1=req.body;
-  //2.2验证数据是否为空
-  if(!obj1.uname){
-    res.send({code:401,msg:'uname require'});
-	return;
-  }
-  if(!obj1.upwd){
-    res.send({code:402,msg:'upwd require'});
-	return;
-  }
-  //2.3执行sql语句
-  //查询是否有用户名和密码同时匹配的数据
-  pool.query('select*from xz_user where uname=? and upwd=?',[obj1.uname,obj1.upwd],function(err,result){
-    if(err)throw err;
-	console.log(result);
-	//判断登陆成功还是失败,成功匹配时返回的结果是一个数组，长度大于0
-	if(result.length>0){
-	  res.send({code:200,msg:'login success'});
-	}else{
-	  res.send({code:201,msg:'uname or upwd error'});
-	}
-  });
+router.get("/login/:uname&:upwd",(req,res)=>{
+	$uname=req.params.uname;
+	$upwd=req.params.upwd;
+	var sql="select*from xz_user where uname=? and upwd=?";
+	pool.query(sql,[$uname,$upwd],(err,result)=>{
+		if(err)throw err;
+		if(result.length>0){
+			res.send("1");
+		}else{
+			res.send("0");
+		}
+	});
 });
 
 
