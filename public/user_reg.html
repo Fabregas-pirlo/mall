@@ -1,8 +1,50 @@
-<h2>用户注册</h2>
-<form method="post" action="/user/reg">
-  用户:<input type="text" name="uname"><br>
-  密码:<input type="text" name="upwd"><br>
-  手机:<input type="text" name="phone"><br>
-  邮箱:<input type="text" name="email"><br>
-  <input type="submit">
-</form>
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #d1{
+      width: 1400px;
+      height: 500px;
+      border: 1px solid #000;
+      background:url(Images/bg1.PNG);
+      margin: 0 auto;
+    }
+    #d2{
+      width: 280px;
+      height: 290px;
+      border: 1px solid #000;
+      margin: 80px auto;
+      background: rgba(255,255,255,0.3 );
+      font-size:14px;
+      font-family: fantasy;
+      font-weight: bolder;
+      font-color:#fff;
+    }
+    #d2 h2{
+      margin: 10px auto;
+      text-align: center;
+    }
+    #d2 div{
+      margin: 20px auto;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="d1">
+    <div id="d2">
+      <h2>用户注册</h2>
+      <div>用户:<input type="text" id="uname"></div>
+      <div>密码:<input type="text" id="upwd"></div>
+      <div>手机:<input type="text" id="phone"></div>
+      <div>邮箱:<input type="text" id="email"></div>
+      <div><button>注册</button></div>
+    </div>
+  </div>
+</body>
+</html>
